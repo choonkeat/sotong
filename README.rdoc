@@ -22,7 +22,14 @@ To do more than just web proxy, add some arguments to the shell command:
 
 === Example
 
+The following command will run +scripts/google.rb+ for any URL matching +google-analytics+
+
   shell$ ruby sotong.rb google-analytics scripts/google.rb
+  Starting on 0.0.0.0:12345...
+
+The following command will also run +scripts/nocache.rb+ for any URL matching +swf+
+
+  shell$ ruby sotong.rb google-analytics scripts/google.rb swf scripts/nocache.rb
   Starting on 0.0.0.0:12345...
   
 See scripts/inspect.rb
