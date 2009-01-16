@@ -1,0 +1,28 @@
+== Intro
+
+"Sotong" is yet another Ruby proxy server.
+
+== Goals
+
+1. easily modify any HTTP response before reaching my browser
+2. quick edit-save-refresh cycle
+3. avoid installing mouseHole & reading its documents
+
+== Get Started
+
+1. Set your browser to use a proxy at localhost:12345
+2. ruby sotong.rb
+3. Ctrl-C to quit
+
+== Usage
+
+To do more than just web proxy, add some arguments to the shell command:
+
+  ruby sotong.rb <url regexp> <ruby script> [<url regexp> <ruby script> [<url regexp> <ruby script> ...]]
+
+=== Example
+
+  shell$ ruby sotong.rb google-analytics scripts/google.rb
+  Starting on 0.0.0.0:12345...
+  
+See scripts/inspect.rb
