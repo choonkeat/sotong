@@ -11,8 +11,10 @@
 == Get Started
 
 1. Set your browser to use a proxy at localhost:12345
-2. ruby sotong.rb
-3. Ctrl-C to quit
+2. Execute command:
+
+  $ ruby sotong.rb
+  Proxy ready on 0.0.0.0:12345. Ctrl-C to quit.
 
 == Usage
 
@@ -24,12 +26,15 @@ To do more than just web proxy, add some arguments to the shell command:
 
 The following command will run "scripts/google.rb" for any URL matching "google-analytics"
 
-  shell$ ruby sotong.rb google-analytics scripts/google.rb
-  Starting on 0.0.0.0:12345...
+  $ ruby sotong.rb google-analytics scripts/google.rb
+  URLs matching /google-analytics/ will trigger script "scripts/google.rb"
+  Proxy ready on 0.0.0.0:12345. Ctrl-C to quit.
 
 The following command will also run "scripts/nocache.rb" for any URL matching "swf"
 
-  shell$ ruby sotong.rb google-analytics scripts/google.rb swf scripts/nocache.rb
-  Starting on 0.0.0.0:12345...
-  
+  $ ruby sotong.rb google-analytics scripts/google.rb swf scripts/nocache.rb
+  URLs matching /google-analytics/ will trigger script "scripts/google.rb"
+  URLs matching /swf/ will trigger script "scripts/nocache.rb"
+  Proxy ready on 0.0.0.0:12345. Ctrl-C to quit.
+
 See scripts/inspect.rb

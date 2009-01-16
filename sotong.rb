@@ -7,15 +7,20 @@ class Sotong < WEBrick::HTTPProxyServer
   attr_accessor :routines
   def initialize(array, config = {})
     @routines = array
+    @routines.select do |pair|
+      puts "URLs matching /#{pair.first}/ will trigger script #{pair.last.inspect}"
+    end
+    
     logger = Logger.new(STDOUT)
     logger.level = Logger::WARN
-    super({
+    super(config = {
         :Port => 12345,
       }.merge(config).merge({
         :Logger => logger,
         :ProxyContentHandler => Proc.new {|req,res| proxy_content_handler(req,res)},
       })
     )
+    puts "Proxy ready on 0.0.0.0:#{config[:Port]}. Ctrl-C to quit."
   end
   
   def proxy_content_handler(request, response)
@@ -34,5 +39,4 @@ end
 array = ARGV.inject([]) {|sum,x| sum.last && sum.last.length == 1 ? sum.last.push(x) && sum : sum + [[x]] }
 server = Sotong.new(array)
 trap("INT") { server.stop }
-puts "Starting on 0.0.0.0:12345..."
 server.start
