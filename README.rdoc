@@ -38,3 +38,21 @@ The following command will also run "scripts/nocache.rb" for any URL matching "s
   Proxy ready on 0.0.0.0:12345. Ctrl-C to quit.
 
 See scripts/inspect.rb
+
+=== Example 2
+
+1. Setup your browser to use proxy at 0.0.0.0:12345
+2. Run sotong with "scripts/highlight-my-tweets.rb"
+
+  $ ruby sotong.rb twitter.com/home scripts/highlight-my-tweets.rb
+  URLs matching /twitter.com/home/ will trigger script "scripts/highlight-my-tweets.rb"
+  Proxy ready on 0.0.0.0:12345. Ctrl-C to quit.
+
+3. Point your browser to http://twitter.com/home
+4. You should see your own tweets in yellow background.
+
+This is just a simple illustration of what you can do
+  1. tweak even when server-side environment is not accessible
+  2. experiment without requiring firebug
+  3. not limited to document.ready, javascript changes. e.g. http headers: gzip? resize image?
+
