@@ -1,13 +1,13 @@
 # For any script, these are the 3 variables you can manipulate
 # 
 # 1. WEBrick::HTTPRequest
-request
+puts request.inspect
 
 # 2. WEBrick::HTTPResponse. Most of the time, you'd want to modify this object.
-response
+puts response.inspect
 
 # 3. String. For your convenience, this is "response.body" -- always ungzipped.
-content
+puts content.inspect
 
 # You can do anything here.
 puts "I sleep."
